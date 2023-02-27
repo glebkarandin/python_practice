@@ -1,4 +1,4 @@
-print("Hello world")
+import math
 
 
 def quadratic_equation():
@@ -21,8 +21,19 @@ def quadratic_equation():
     else:
         c = 0
 
-    d = b - 4 * a * c
-    return d
+    d = b * b - 4 * a * c
+    print("Discriminant is ", d)
+
+    if d < 0:
+        return "This equation have not solutions"
+    if d == 0:
+        root = -b / 2 * a
+        return "This equation have one root: " + str(root)
+
+    root_1 = (-b - math.sqrt(d)) / (2 * a)
+    root_2 = (-b + math.sqrt(d)) / (2 * a)
+
+    return "This equation have two solutions: root first - " + str(root_1) + " and root second - " + str(root_2)
 
 
 res = quadratic_equation()
